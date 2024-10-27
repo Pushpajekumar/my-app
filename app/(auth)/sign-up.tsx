@@ -4,10 +4,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Colors } from "@/constants/Colors";
 import Button from "@/components/ui/button";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { screenHeight } from "@/constants/dimensions";
 
 const SignUp = () => {
+  const router = useRouter();
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -53,7 +54,7 @@ const SignUp = () => {
           </View>
         </View>
         <View style={styles.button_container}>
-          <Button>
+          <Button onPress={() => router.push("/sign-up-flow")}>
             <Text style={styles.button_text}>Next</Text>
           </Button>
 
