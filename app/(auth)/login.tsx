@@ -1,16 +1,11 @@
 import { View, Text, StyleSheet, Image, TextInput } from "react-native";
 import React, { useEffect } from "react";
-import { useNavigation } from "expo-router";
+import { Link, useNavigation } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import { screenHeight } from "@/constants/dimensions";
 import Button from "@/components/ui/button";
 
 const login = () => {
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, [navigation]);
   return (
     <View style={styles.container}>
       <View>
@@ -65,7 +60,11 @@ const login = () => {
 
       <View style={styles.last_container}>
         <Text style={styles.last_text}>New User ?</Text>
-        <Text style={styles.last_text_register}>Register Now</Text>
+        <Link href={"/sign-up"} style={styles.last_text_register}>
+          <Text style={[styles.last_text, { color: Colors.light.primary }]}>
+            Register Now
+          </Text>
+        </Link>
       </View>
     </View>
   );
