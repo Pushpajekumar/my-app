@@ -20,10 +20,12 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import Button from "@/components/ui/button";
+import { useRouter } from "expo-router";
 
 const screenHeight = Dimensions.get("window").height;
 
 const SignUpFlow = () => {
+  const router = useRouter();
   let paginationIndex = 3;
   const [selectedIndex, setSelectedIndex] = useState<null | number>(null);
   const [selectedWeightUnit, setSelectedWeightUnit] = useState("kg");
@@ -263,7 +265,10 @@ const SignUpFlow = () => {
         </View>
       )}
 
-      <Button style={styles.button}>
+      <Button
+        style={styles.button}
+        onPress={() => router.push("/optional-info")}
+      >
         <Text style={styles.button_text}>Next</Text>
       </Button>
     </SafeAreaView>
@@ -298,7 +303,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 20,
-    fontWeight: "600",
+    fontWeight: "500",
     color: Colors.light.text,
     lineHeight: 24,
   },
