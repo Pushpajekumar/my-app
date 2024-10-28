@@ -11,5 +11,6 @@ export const Colors = {
     mute: "#8A8A8A",
     icon: "#687076",
     tabIconDefault: "#687076",
+    secondary: "#2F2F2F",
   },
 };

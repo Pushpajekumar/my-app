@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useExpoRouter } from "expo-router/build/global-state/router-store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import OnboardingScreen from "@/components/globals/onboarding";
+import { Colors } from "@/constants/Colors";
 
 const onboardingData = [
   {
@@ -32,13 +33,19 @@ const Index = () => {
 
   useEffect(() => {
     const checkFirstTime = async () => {
+      const isAuthenticated = true;
+
       const value = await AsyncStorage.getItem("first_time");
 
-      if (value) {
+      if (value && !isAuthenticated) {
         router.push("(auth)/login");
       } else {
         await AsyncStorage.setItem("first_time", "false");
         setIsLoading(false); // Load onboarding screen only if it's the first time
+      }
+
+      if (value && isAuthenticated) {
+        router.push("/(tabs)");
       }
     };
 
@@ -60,7 +67,7 @@ const Index = () => {
   if (isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" color="#F2D679" />
+        <ActivityIndicator size="large" color={Colors.light.primary} />
       </View>
     );
   }
