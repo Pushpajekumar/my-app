@@ -28,24 +28,33 @@ const onboardingData = [
 
 const Index = () => {
   const router = useExpoRouter();
-  const [isLoading, setIsLoading] = useState(true); // New loading state
+  const [isLoading, setIsLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const checkFirstTime = async () => {
-      const isAuthenticated = true;
+      try {
+        const isAuthenticated = true;
+        const firstTime = await AsyncStorage.getItem("first_time");
 
-      const value = await AsyncStorage.getItem("first_time");
+        // If this isn't the first time and the user is authenticated, navigate to the main screen
+        if (firstTime && isAuthenticated) {
+          router.replace("/(tabs)");
+          return;
+        }
 
-      if (value && !isAuthenticated) {
-        router.push("(auth)/login");
-      } else {
+        // If this isn't the first time and the user is not authenticated, navigate to login
+        if (firstTime && !isAuthenticated) {
+          router.replace("(auth)/login");
+          return;
+        }
+
+        // Otherwise, set the flag and show onboarding
         await AsyncStorage.setItem("first_time", "false");
-        setIsLoading(false); // Load onboarding screen only if it's the first time
-      }
-
-      if (value && isAuthenticated) {
-        router.push("/(tabs)");
+      } catch (e) {
+        console.error("Error checking first time flag", e);
+      } finally {
+        setIsLoading(false); // Complete loading once checks are done
       }
     };
 
@@ -56,12 +65,12 @@ const Index = () => {
     if (currentIndex < onboardingData.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      router.push("(auth)/login");
+      router.replace("(auth)/login");
     }
   };
 
   const handleSkip = () => {
-    router.push("(auth)/login");
+    router.replace("(auth)/login");
   };
 
   if (isLoading) {
