@@ -1,8 +1,9 @@
-import HomeSearch from "@/components/globals/home-search";
+import HomeSearch from "@/components/home/home-search";
 import HomeHeader from "@/components/home/home-header";
 import { Colors } from "@/constants/Colors";
 import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import HomeCarousel from "@/components/home/home-carousel";
 
 export default function HomeScreen() {
   return (
@@ -10,6 +11,7 @@ export default function HomeScreen() {
       <SafeAreaView>
         <HomeHeader />
         <HomeSearch />
+        <HomeCarousel />
       </SafeAreaView>
     </ScrollView>
   );
