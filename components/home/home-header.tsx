@@ -1,9 +1,17 @@
 import { Colors } from "@/constants/Colors";
-import { Image, View, StyleSheet, Text } from "react-native";
+import { useRouter } from "expo-router";
+import { Image, View, StyleSheet, Text, Pressable } from "react-native";
 
 const GITHUB_AVATAR_URI = "https://github.com/mrzachnugent.png";
 
 const HomeHeader = () => {
+  const router = useRouter();
+
+  function handleNotificationPress() {
+    console.log("Notification Pressed");
+    router.navigate("/(public)/notification");
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.leftSection}>
@@ -23,11 +31,13 @@ const HomeHeader = () => {
           style={styles.icon}
           alt="Shopping Cart"
         />
-        <Image
-          source={require("@/assets/images/Notification.png")}
-          style={styles.icon}
-          alt="Notification Bell"
-        />
+        <Pressable onPress={handleNotificationPress}>
+          <Image
+            source={require("@/assets/images/Notification.png")}
+            style={styles.icon}
+            alt="Notification Bell"
+          />
+        </Pressable>
       </View>
     </View>
   );
