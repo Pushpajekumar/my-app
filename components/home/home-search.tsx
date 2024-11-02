@@ -1,18 +1,31 @@
-import { View, Text, Image, StyleSheet, TextInput } from "react-native";
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TextInput,
+  Pressable,
+} from "react-native";
 import { Colors } from "@/constants/Colors";
+import { useRouter } from "expo-router";
 
 const HomeSearch = () => {
+  const router = useRouter();
+
+  function handleSearchClick() {
+    router.push("/(public)/search");
+  }
+  
   return (
     <View style={styles.container}>
-      <View style={styles.searchBox}>
+      <Pressable style={styles.searchBox} onPress={handleSearchClick}>
         <Text style={styles.search_text}>Search...</Text>
         <Image
           source={require("@/assets/images/Magnifer.png")}
           alt="Search bar"
           style={styles.search_icon}
         />
-      </View>
+      </Pressable>
     </View>
   );
 };
@@ -54,12 +67,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeSearch;
-
-//extra
-{
-  /* <FontAwesome6
-name="bars-staggered"
-size={24}
-color={Colors.light.primary}
-/> */
-}
