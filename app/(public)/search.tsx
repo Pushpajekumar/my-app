@@ -5,12 +5,10 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput,
 } from "react-native";
 import React, { useState } from "react";
-import { Colors } from "@/constants/Colors"; // Adjust the import based on your project structure
-import { AntDesign } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
+import { Colors } from "@/constants/Colors";
+import SearchComp from "@/components/globals/search";
 
 const filter = [
   { id: 1, name: "All", value: "all" },
@@ -40,29 +38,9 @@ const result = [
 
 const Search = () => {
   const [selectedFilter, setSelectedFilter] = useState(1);
-  const router = useRouter();
-
-  function handleBack() {
-    router.navigate("/(tabs)"); // Go back to the previous screen
-  }
-
   return (
     <View style={styles.container}>
-      <View style={styles.search}>
-        <AntDesign
-          name="left"
-          size={20}
-          color={Colors.light.primary}
-          onPress={handleBack}
-        />
-        <View style={styles.searchContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Search"
-            placeholderTextColor={Colors.light.text}
-          />
-        </View>
-      </View>
+     <SearchComp showBackArrow />
       <View style={styles.filterContainer}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {filter.map((item) => (
@@ -122,35 +100,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.background,
     paddingTop: 60,
     paddingHorizontal: 20,
-  },
-
-  search: {
-    flexDirection: "row",
-    gap: 5,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  searchContainer: {
-    flexDirection: "row",
-    borderWidth: 1,
-    borderColor: Colors.light.text,
-    borderRadius: 8,
-    alignItems: "center",
-    flex: 1,
-    paddingHorizontal: 5,
-  },
-
-  input: {
-    flex: 1,
-    color: Colors.light.text,
-    fontSize: 14,
-    paddingVertical: 10,
-  },
-
-  image: {
-    width: 24,
-    height: 24,
   },
 
   filterContainer: {

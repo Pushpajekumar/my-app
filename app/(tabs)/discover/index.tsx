@@ -1,22 +1,27 @@
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StyleSheet, TextInput } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import HeaderBack from "@/components/globals/header-back";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
+import { AntDesign } from "@expo/vector-icons";
+import SearchComp from "@/components/globals/search";
 
 const index = () => {
   const router = useRouter();
+
+  function handleBack() {
+    router.navigate("/(tabs)"); // Go back to the previous screen
+  }
+  
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <HeaderBack
         label="Discover"
         handleBack={() => router.navigate("/(tabs)")}
       />
-      <ScrollView style={styles.container}>
-        <View>
-          <Text>Discover Page!</Text>
-        </View>
+      <ScrollView>
+      <SearchComp showSearchIcon />
       </ScrollView>
     </SafeAreaView>
   );
@@ -25,10 +30,11 @@ const index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
+    backgroundColor: Colors.light.background,
     paddingHorizontal: 20,
   },
-});
 
+  
+});
 
 export default index;
