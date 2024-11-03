@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
@@ -15,7 +21,7 @@ const FilterNav = () => {
 
   return (
     <View style={styles.filterContainer}>
-      <ScrollView horizontal>
+      <ScrollView horizontal showsVerticalScrollIndicator={false}>
         {filter.map((item) => (
           <TouchableOpacity
             key={item.id}

@@ -9,7 +9,6 @@ import HomeEquipmentBasedExercise from "@/components/home/home-eq-based";
 import Featured from "@/components/globals/featured";
 
 export default function HomeScreen() {
-
   const homeExploreData = [
     {
       id: 1,
@@ -105,8 +104,8 @@ export default function HomeScreen() {
   ];
 
   return (
-    <ScrollView style={styles.container}>
-      <SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false} >
         <HomeHeader />
         <HomeSearch />
         <HomeCarousel />
@@ -115,8 +114,8 @@ export default function HomeScreen() {
         <Featured data={featuredDiet} title="Featured Workouts" />
         <Featured data={featuredDiet} title="Featured Exercise" />
         <Featured data={featuredDiet} title="Featured Diet" />
-      </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
