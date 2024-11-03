@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.light.background,
     paddingHorizontal: 20,
+    paddingBottom: 30,
   },
 
   noNotifyContainer: {

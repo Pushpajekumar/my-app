@@ -39,11 +39,6 @@ const featuredDiet = [
 
 const index = () => {
   const router = useRouter();
-
-  function handleBack() {
-    router.navigate("/(tabs)"); // Go back to the previous screen
-  }
-  
   return (
     <SafeAreaView style={styles.container}>
       <HeaderBack
@@ -51,13 +46,12 @@ const index = () => {
         handleBack={() => router.navigate("/(tabs)")}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
-      <SearchComp showSearchIcon />
-      <FilterNav />
-      <Featured data={featuredDiet} title="Exercise" />
-      <Featured data={featuredDiet} title="Workout" />
-      <Featured data={featuredDiet} title="Diet" />
+        <SearchComp showSearchIcon />
+        <FilterNav />
+        <Featured data={featuredDiet} title="Exercise" />
+        <Featured data={featuredDiet} title="Workout" />
+        <Featured data={featuredDiet} title="Diet" />
       </ScrollView>
-
     </SafeAreaView>
   );
 };
@@ -67,9 +61,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.light.background,
     paddingHorizontal: 20,
+    paddingBottom: 30,
   },
-
-  
 });
 
 export default index;

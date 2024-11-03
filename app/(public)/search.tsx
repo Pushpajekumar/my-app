@@ -40,7 +40,7 @@ const Search = () => {
   const [selectedFilter, setSelectedFilter] = useState(1);
   return (
     <View style={styles.container}>
-     <SearchComp showBackArrow />
+      <SearchComp showBackArrow />
       <View style={styles.filterContainer}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {filter.map((item) => (
@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.background,
     paddingTop: 60,
     paddingHorizontal: 20,
+    paddingBottom: 30,
   },
 
   filterContainer: {

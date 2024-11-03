@@ -48,7 +48,7 @@ const OptionalInfo = () => {
         </View>
         <Button
           style={styles.button}
-          onPress={() => router.push("/optional-info")}
+          onPress={() => router.push("/(tabs)")}
         >
           <Text style={styles.button_text}>Next</Text>
         </Button>
