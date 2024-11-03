@@ -6,6 +6,7 @@ import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import { AntDesign } from "@expo/vector-icons";
 import SearchComp from "@/components/globals/search";
+import FilterNav from "@/components/globals/filter-nav";
 
 const index = () => {
   const router = useRouter();
@@ -22,6 +23,7 @@ const index = () => {
       />
       <ScrollView>
       <SearchComp showSearchIcon />
+      <FilterNav />
       </ScrollView>
     </SafeAreaView>
   );
