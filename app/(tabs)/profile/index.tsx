@@ -30,7 +30,7 @@ const index = () => {
       />
       <ProfileInfo
         data={userProfileData}
-        onEditPress={() => console.log("Edit pressed")}
+        onEditPress={() => router.push("/(public)/edit-profile")}
       />
       <ProfileNav />
     </SafeAreaView>
