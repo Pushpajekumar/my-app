@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
@@ -8,19 +8,40 @@ type HeaderBackProps = {
   showClearAll?: boolean;
   onClearAll?: () => void;
   handleBack: () => void;
+  isProfile?: boolean;
 };
 
-const HeaderBack = ({ label, showClearAll, handleBack }: HeaderBackProps) => {
+const HeaderBack = ({
+  label,
+  showClearAll,
+  handleBack,
+  isProfile,
+}: HeaderBackProps) => {
   return (
-    <View style={styles.header_container}>
-      <View style={styles.header_body}>
-        <Pressable onPress={handleBack}>
-          <AntDesign name="left" size={20} color={Colors.light.primary} />
-        </Pressable>
-        <Text style={styles.text_heading}>{label}</Text>
-      </View>
-      {showClearAll && <Text style={styles.text}>Clear All</Text>}
-    </View>
+    <>
+      {isProfile ? (
+        <View style={styles.header_container}>
+          <Pressable onPress={handleBack}>
+            <AntDesign name="left" size={20} color={Colors.light.primary} />
+          </Pressable>
+          <Text style={styles.account}>Account</Text>
+          <Image
+            source={require("@/assets/images/qr_scan.png")}
+            style={styles.qr}
+          />
+        </View>
+      ) : (
+        <View style={styles.header_container}>
+          <View style={styles.header_body}>
+            <Pressable onPress={handleBack}>
+              <AntDesign name="left" size={20} color={Colors.light.primary} />
+            </Pressable>
+            <Text style={styles.text_heading}>{label}</Text>
+          </View>
+          {showClearAll && <Text style={styles.text}>Clear All</Text>}
+        </View>
+      )}
+    </>
   );
 };
 
@@ -46,6 +67,17 @@ const styles = StyleSheet.create({
     color: Colors.light.primary,
     fontWeight: "500",
     fontSize: 14,
+  },
+  account: {
+    fontSize: 20,
+    lineHeight: 24,
+    fontWeight: "800",
+    color: Colors.light.primary,
+  },
+
+  qr: {
+    width: 24,
+    height: 24,
   },
 });
 

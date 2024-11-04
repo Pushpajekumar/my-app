@@ -54,7 +54,7 @@ const notification = () => {
         handleBack={() => router.navigate("/(tabs)")}
       />
       {notifications ? (
-        <ScrollView style={styles.body}>
+        <ScrollView style={styles.body} showsVerticalScrollIndicator={false}>
           {result.map((item) => (
             <View key={item.id} style={styles.result_container}>
               <View style={styles.result_box}>

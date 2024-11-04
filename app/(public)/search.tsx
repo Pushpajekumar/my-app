@@ -73,7 +73,7 @@ const Search = () => {
         </ScrollView>
       </View>
 
-      <ScrollView style={{marginBottom: 20}}>
+      <ScrollView style={{marginBottom: 20}} showsVerticalScrollIndicator={false}>
         {result?.map((item) => (
           <View style={styles.result_box} key={item?.id}>
             <Image
