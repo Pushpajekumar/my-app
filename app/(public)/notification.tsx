@@ -6,35 +6,35 @@ import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 
 const result = [
-    {
-      id: 1,
-      name: "Hammer Curls",
-      image: require("@/assets/images/search-result.png"),
-      desc: "You have a new workout plan",
-      date: "2024-11-02",
-    },
-    {
-      id: 2,
-      name: "Push Ups",
-      image: require("@/assets/images/search-result.png"),
-      desc: "You have a new workout plan",
-      date: "2023-10-02",
-    },
-    {
-      id: 3,
-      name: "Squats",
-      image: require("@/assets/images/search-result.png"),
-      desc: "You have a new workout plan",
-      date: "2023-10-03",
-    },
-    {
-      id: 4,
-      name: "Plank",
-      image: require("@/assets/images/search-result.png"),
-      desc: "You have a new workout plan",
-      date: "2023-10-04",
-    },
-  ];
+  {
+    id: 1,
+    name: "Hammer Curls",
+    image: require("@/assets/images/search-result.png"),
+    desc: "You have a new workout plan",
+    date: "2024-11-02",
+  },
+  {
+    id: 2,
+    name: "Push Ups",
+    image: require("@/assets/images/search-result.png"),
+    desc: "You have a new workout plan",
+    date: "2023-10-02",
+  },
+  {
+    id: 3,
+    name: "Squats",
+    image: require("@/assets/images/search-result.png"),
+    desc: "You have a new workout plan",
+    date: "2023-10-03",
+  },
+  {
+    id: 4,
+    name: "Plank",
+    image: require("@/assets/images/search-result.png"),
+    desc: "You have a new workout plan",
+    date: "2023-10-04",
+  },
+];
 
 const notification = () => {
   const [notifications, setNotifications] = React.useState(1);
@@ -53,45 +53,43 @@ const notification = () => {
         label="Notification"
         handleBack={() => router.navigate("/(tabs)")}
       />
-    {
-        notifications ? (
-            <ScrollView style={styles.body}>
-            {result.map((item) => (
-              <View key={item.id} style={styles.result_container}>
-                <View style={styles.result_box}>
-                  <Image source={item.image} style={styles.result_image} />
-    
-                  <View>
-                    <Text style={styles.result_title}>{item.name}</Text>
-                    <Text style={styles.result_desc}>{item.desc}</Text>
-                  </View>
-                </View>
-    
-                <View style={styles.date_box}>
-                  {isToday(item.date) ? (
-                    <View style={styles.todayContainer}>
-                      <Text style={styles.today_date}>Today</Text>
-                      <View style={styles.greenDot} />
-                    </View>
-                  ) : (
-                    <Text style={styles.date}>{item.date}</Text>
-                  )}
+      {notifications ? (
+        <ScrollView style={styles.body}>
+          {result.map((item) => (
+            <View key={item.id} style={styles.result_container}>
+              <View style={styles.result_box}>
+                <Image source={item.image} style={styles.result_image} />
+
+                <View>
+                  <Text style={styles.result_title}>{item.name}</Text>
+                  <Text style={styles.result_desc}>{item.desc}</Text>
                 </View>
               </View>
-            ))}
-          </ScrollView>
-        ) : (  <View style={styles.noNotifyContainer}>
-            <Image
-              source={require("@/assets/images/no-notification.png")}
-              width={159}
-              height={203}
-              style={styles.image}
-            />
-            <Text style={styles.noNotifyText}>
-            You Haven't Any Notification
-            </Text>
-          </View>) 
-    }
+
+              <View style={styles.date_box}>
+                {isToday(item.date) ? (
+                  <View style={styles.todayContainer}>
+                    <Text style={styles.today_date}>Today</Text>
+                    <View style={styles.greenDot} />
+                  </View>
+                ) : (
+                  <Text style={styles.date}>{item.date}</Text>
+                )}
+              </View>
+            </View>
+          ))}
+        </ScrollView>
+      ) : (
+        <View style={styles.noNotifyContainer}>
+          <Image
+            source={require("@/assets/images/no-notification.png")}
+            width={159}
+            height={203}
+            style={styles.image}
+          />
+          <Text style={styles.noNotifyText}>You Haven't Any Notification</Text>
+        </View>
+      )}
     </SafeAreaView>
   );
 };
@@ -101,7 +99,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.light.background,
     paddingHorizontal: 20,
-    paddingBottom: 30,
   },
 
   noNotifyContainer: {
@@ -171,6 +168,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-end",
     marginRight: 10,
+    marginBottom: 20,
   },
 
   todayContainer: {

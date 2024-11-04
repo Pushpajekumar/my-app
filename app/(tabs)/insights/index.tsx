@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.light.background,
     paddingHorizontal: 20,
-    paddingBottom: 30,
   },
 
   heading: {
@@ -177,6 +176,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     flexDirection: "row",
     justifyContent: "space-between",
+    marginBottom: 20,
   },
 
   compareNowText: {

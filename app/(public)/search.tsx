@@ -73,7 +73,7 @@ const Search = () => {
         </ScrollView>
       </View>
 
-      <ScrollView>
+      <ScrollView style={{marginBottom: 20}}>
         {result?.map((item) => (
           <View style={styles.result_box} key={item?.id}>
             <Image
@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.background,
     paddingTop: 60,
     paddingHorizontal: 20,
-    paddingBottom: 30,
   },
 
   filterContainer: {

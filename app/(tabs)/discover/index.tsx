@@ -50,7 +50,7 @@ const index = () => {
         <FilterNav />
         <Featured data={featuredDiet} title="Exercise" />
         <Featured data={featuredDiet} title="Workout" />
-        <Featured data={featuredDiet} title="Diet" />
+        <Featured data={featuredDiet} title="Diet" isLast />
       </ScrollView>
     </SafeAreaView>
   );
@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.light.background,
     paddingHorizontal: 20,
-    paddingBottom: 30,
   },
 });
 

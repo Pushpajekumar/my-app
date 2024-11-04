@@ -9,11 +9,19 @@ type FeaturedTypeProps = {
     name: string;
     imgUrl: any;
   }[];
+  isLast?: boolean;
 };
 
-const Featured = ({ title, data }: FeaturedTypeProps) => {
+const Featured = ({ title, data, isLast }: FeaturedTypeProps) => {
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        isLast && {
+          marginBottom: 20,
+        },
+      ]}
+    >
       <View style={styles.header}>
         <Text style={styles.headerText}>{title}</Text>
         <AntDesign name="right" size={20} color={Colors.light.primary} />

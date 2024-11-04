@@ -113,7 +113,7 @@ export default function HomeScreen() {
         <HomeEquipmentBasedExercise data={homeEqData} />
         <Featured data={featuredDiet} title="Featured Workouts" />
         <Featured data={featuredDiet} title="Featured Exercise" />
-        <Featured data={featuredDiet} title="Featured Diet" />
+        <Featured data={featuredDiet} title="Featured Diet" isLast/>
       </ScrollView>
     </SafeAreaView>
   );
@@ -124,6 +124,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.light.background,
     paddingHorizontal: 20,
-    paddingBottom: 30,
   },
 });
