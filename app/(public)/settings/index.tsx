@@ -59,6 +59,7 @@ const settings = () => {
           </View>
         ))}
       </View>
+      {/* @ts-ignore */}
       <Dialog
         visible={dialogVisible}
         title=""
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     color: Colors.light.text,
-    textAlign: "center",  
+    textAlign: "center",
     fontWeight: "500",
   },
 
