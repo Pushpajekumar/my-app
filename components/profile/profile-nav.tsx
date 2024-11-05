@@ -9,14 +9,18 @@ import {
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
+import { useRouter } from "expo-router";
 
 const ProfileNav = () => {
+
+  const router = useRouter();
+
   const nav = [
     {
       id: 1,
       label: "Settings",
       imgUri: require("@/assets/images/Settings.png"),
-      route: "/(tabs)/profile/settings",
+      route: "/(public)/settings",
     },
     {
       id: 2,
@@ -69,7 +73,7 @@ const ProfileNav = () => {
           <View style={styles.item} key={item.id}>
             <View style={styles.icon_label_container}>
               <Image source={item.imgUri} style={styles.icon} />
-              <Pressable>
+              <Pressable onPress={() => router.push(item.route as any)}>
                 <Text style={styles.label}> {item.label}</Text>
               </Pressable>
             </View>
