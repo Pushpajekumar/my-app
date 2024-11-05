@@ -5,9 +5,11 @@ import HeaderBack from "@/components/globals/header-back";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import { AntDesign } from "@expo/vector-icons";
+import { Dialog } from "react-native-simple-dialogs";
 
 const settings = () => {
   const router = useRouter();
+  const [dialogVisible, setDialogVisible] = React.useState(false);
 
   const nav = [
     {
@@ -30,6 +32,10 @@ const settings = () => {
     },
   ];
 
+  const handleDeletePress = () => {
+    setDialogVisible(true);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderBack label="Settings" handleBack={() => router.back()} />
@@ -39,7 +45,13 @@ const settings = () => {
           <View style={styles.item} key={item.id}>
             <View style={styles.icon_label_container}>
               <Image source={item.imgUri} style={styles.icon} />
-              <Pressable onPress={() => router.push(item.route as any)}>
+              <Pressable
+                onPress={
+                  item.label === "Delete Account"
+                    ? handleDeletePress
+                    : () => router.push(item.route as any)
+                }
+              >
                 <Text style={styles.label}> {item.label}</Text>
               </Pressable>
             </View>
@@ -47,6 +59,70 @@ const settings = () => {
           </View>
         ))}
       </View>
+      <Dialog
+        visible={dialogVisible}
+        title=""
+        onTouchOutside={() => setDialogVisible(false)}
+        dialogStyle={styles.dialogue_container}
+      >
+        <View>
+          <View style={styles.delete_icon_container}>
+            <Image
+              source={require("@/assets/images/trash-primary.png")}
+              style={styles.trash}
+            />
+          </View>
+          <View style={styles.text_container}>
+            <Text style={styles.text}>
+              Are you sure you want to delete your account?
+            </Text>
+          </View>
+          <View style={styles.button_container}>
+            <Pressable onPress={() => setDialogVisible(false)}>
+              <View
+                style={[
+                  styles.button,
+                  {
+                    backgroundColor: Colors.light.background,
+                  },
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.button_text,
+                    {
+                      color: Colors.light.mute,
+                    },
+                  ]}
+                >
+                  Cancel
+                </Text>
+              </View>
+            </Pressable>
+            <Pressable onPress={() => setDialogVisible(false)}>
+              <View
+                style={[
+                  styles.button,
+                  {
+                    backgroundColor: Colors.light.primary,
+                  },
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.button_text,
+                    {
+                      color: Colors.light.secondary,
+                    },
+                  ]}
+                >
+                  Delete
+                </Text>
+              </View>
+            </Pressable>
+          </View>
+        </View>
+      </Dialog>
     </SafeAreaView>
   );
 };
@@ -85,6 +161,63 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 18,
     color: Colors.light.text,
+  },
+
+  dialogue_container: {
+    backgroundColor: Colors.light.secondary,
+    borderRadius: 12,
+    shadowRadius: 15,
+    elevation: 15,
+    shadowOpacity: 1,
+  },
+
+  delete_icon_container: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.light.background,
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    alignSelf: "center",
+    gap: 10,
+  },
+
+  trash: {
+    width: 37,
+    height: 37,
+  },
+
+  text_container: {
+    alignItems: "center",
+    paddingVertical: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ededed",
+  },
+
+  text: {
+    fontSize: 18,
+    color: Colors.light.text,
+    textAlign: "center",  
+    fontWeight: "500",
+  },
+
+  button: {
+    paddingVertical: 10,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+    paddingHorizontal: 25,
+    gap: 10,
+  },
+
+  button_container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  button_text: {
+    fontSize: 18,
   },
 });
 

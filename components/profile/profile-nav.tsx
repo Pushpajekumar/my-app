@@ -12,7 +12,6 @@ import { Colors } from "@/constants/Colors";
 import { useRouter } from "expo-router";
 
 const ProfileNav = () => {
-
   const router = useRouter();
 
   const nav = [
@@ -70,15 +69,16 @@ const ProfileNav = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
         {nav.map((item) => (
-          <View style={styles.item} key={item.id}>
-            <View style={styles.icon_label_container}>
-              <Image source={item.imgUri} style={styles.icon} />
-              <Pressable onPress={() => router.push(item.route as any)}>
+          <Pressable onPress={() => router.push(item.route as any)}>
+            <View style={styles.item} key={item.id}>
+              <View style={styles.icon_label_container}>
+                <Image source={item.imgUri} style={styles.icon} />
+
                 <Text style={styles.label}> {item.label}</Text>
-              </Pressable>
+              </View>
+              <AntDesign name="right" size={20} color={Colors.light.text} />
             </View>
-            <AntDesign name="right" size={20} color={Colors.light.text} />
-          </View>
+          </Pressable>
         ))}
       </View>
     </ScrollView>
