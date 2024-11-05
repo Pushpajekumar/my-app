@@ -31,7 +31,7 @@ const ProfileNav = () => {
       id: 3,
       label: "Assigned Workout & Diet",
       imgUri: require("@/assets/images/assigned.png"),
-      route: "/(tabs)/profile/assigned",
+      route: "/(public)/assigned-workout-diet",
     },
     {
       id: 4,
