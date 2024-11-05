@@ -26,7 +26,7 @@ const screenHeight = Dimensions.get("window").height;
 
 const SignUpFlow = () => {
   const router = useRouter();
-  let paginationIndex = 3;
+  let paginationIndex = 2;
   const [selectedIndex, setSelectedIndex] = useState<null | number>(null);
   const [selectedWeightUnit, setSelectedWeightUnit] = useState("kg");
   const [selectedHeightUnit, setSelectedHeightUnit] = useState("cm");

@@ -37,25 +37,25 @@ const ProfileNav = () => {
       id: 4,
       label: "About App",
       imgUri: require("@/assets/images/about.png"),
-      route: "/(tabs)/profile/about",
+      route: "/(public)/about",
     },
     {
       id: 5,
       label: "Privacy Policy",
       imgUri: require("@/assets/images/security.png"),
-      route: "/(tabs)/profile/privacy",
+      route: "/(public)/privacy-policy",
     },
     {
       id: 6,
       label: "Terms & Conditions",
       imgUri: require("@/assets/images/terms.png"),
-      route: "/(tabs)/profile/terms",
+      route: "/(public)/terms",
     },
     {
       id: 7,
       label: "Refund Policy",
       imgUri: require("@/assets/images/money.png"),
-      route: "/(tabs)/profile/refund",
+      route: "/(public)/refund-policy",
     },
     {
       id: 9,
@@ -69,8 +69,11 @@ const ProfileNav = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
         {nav.map((item) => (
-          <Pressable onPress={() => router.push(item.route as any)}>
-            <View style={styles.item} key={item.id}>
+          <Pressable
+            onPress={() => router.push(item.route as any)}
+            key={item.id}
+          >
+            <View style={styles.item}>
               <View style={styles.icon_label_container}>
                 <Image source={item.imgUri} style={styles.icon} />
 
