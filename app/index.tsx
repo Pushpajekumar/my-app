@@ -32,6 +32,8 @@ const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    // AsyncStorage.clear(); // Clear AsyncStorage for testing purposes
+
     const checkFirstTime = async () => {
       try {
         const isAuthenticated = true;

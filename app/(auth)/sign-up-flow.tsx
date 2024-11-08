@@ -26,14 +26,14 @@ const screenHeight = Dimensions.get("window").height;
 
 const SignUpFlow = () => {
   const router = useRouter();
-  let paginationIndex = 2;
+  let paginationIndex = 3;
   const [selectedIndex, setSelectedIndex] = useState<null | number>(null);
   const [selectedWeightUnit, setSelectedWeightUnit] = useState("kg");
   const [selectedHeightUnit, setSelectedHeightUnit] = useState("cm");
 
   const handleSelect = (index: number) => {
     setSelectedIndex(index);
-    scale.value = 1.2;
+    scale.value = 1;
     opacity.value = 1;
   };
 
@@ -153,21 +153,22 @@ const SignUpFlow = () => {
                   selectedIndex === index && animatedSelectorStyle,
                 ]}
               />
-              <Animated.Text
+              <Text
                 style={[
                   styles.imageLabel,
                   selectedIndex === index
                     ? styles.selectedLabel
                     : styles.unselectedLabel,
-                  index === selectedIndex && animatedSelectorStyle,
                 ]}
               >
                 {image.label}
-              </Animated.Text>
+              </Text>
             </TouchableOpacity>
           ))}
         </View>
       )}
+
+      {paginationIndex === 2 && <AgeSelector />}
 
       {paginationIndex === 3 && (
         <View style={styles.form_container}>

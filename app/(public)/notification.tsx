@@ -11,7 +11,7 @@ const result = [
     name: "Hammer Curls",
     image: require("@/assets/images/search-result.png"),
     desc: "You have a new workout plan",
-    date: "2024-11-02",
+    date: "2024-11-08",
   },
   {
     id: 2,

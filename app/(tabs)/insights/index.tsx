@@ -5,6 +5,7 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import React from "react";
 import HeaderBack from "@/components/globals/header-back";
@@ -21,11 +22,14 @@ const index = () => {
         label="Insights"
         handleBack={() => router.navigate("/(tabs)")}
       />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.heading}>Today's Progress</Text>
 
         <View style={styles.topWidgetContainer}>
-          <View style={styles.topWidget}>
+          <Pressable
+            style={styles.topWidget}
+            onPress={() => router.push("/(public)/insights/calorie-insight")}
+          >
             <View style={styles.topWidgetHeadingContainer}>
               <Text style={styles.topWidgetHeading}>Calories</Text>
               <Image
@@ -38,7 +42,7 @@ const index = () => {
               <Text style={styles.topWidgetValue}>1750</Text>
               <Text style={styles.topWidgetUnit}>Kcal</Text>
             </View>
-          </View>
+          </Pressable>
           <View style={styles.topWidget}>
             <View style={styles.topWidgetHeadingContainer}>
               <Text style={styles.topWidgetHeading}>Calories</Text>

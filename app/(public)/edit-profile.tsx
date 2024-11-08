@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, TextInput, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { Colors } from "@/constants/Colors";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -20,64 +27,64 @@ const editProfile = () => {
         />
       </View>
 
-      <ScrollView showsHorizontalScrollIndicator={false}>
-      <View style={styles.form_container}>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Name"
-            placeholderTextColor={Colors.light.mute}
-          />
-        </View>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Email"
-            placeholderTextColor={Colors.light.mute}
-          />
-        </View>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Select Gender"
-            placeholderTextColor={Colors.light.mute}
-          />
-        </View>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Select DOB"
-            placeholderTextColor={Colors.light.mute}
-          />
-        </View>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Your Height"
-            placeholderTextColor={Colors.light.mute}
-          />
-        </View>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Weight"
-            placeholderTextColor={Colors.light.mute}
-          />
-        </View>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Age"
-            placeholderTextColor={Colors.light.mute}
-          />
-        </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.form_container}>
+          <View style={styles.form}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Name"
+              placeholderTextColor={Colors.light.mute}
+            />
+          </View>
+          <View style={styles.form}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Email"
+              placeholderTextColor={Colors.light.mute}
+            />
+          </View>
+          <View style={styles.form}>
+            <TextInput
+              style={styles.input}
+              placeholder="Select Gender"
+              placeholderTextColor={Colors.light.mute}
+            />
+          </View>
+          <View style={styles.form}>
+            <TextInput
+              style={styles.input}
+              placeholder="Select DOB"
+              placeholderTextColor={Colors.light.mute}
+            />
+          </View>
+          <View style={styles.form}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Your Height"
+              placeholderTextColor={Colors.light.mute}
+            />
+          </View>
+          <View style={styles.form}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Weight"
+              placeholderTextColor={Colors.light.mute}
+            />
+          </View>
+          <View style={styles.form}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Age"
+              placeholderTextColor={Colors.light.mute}
+            />
+          </View>
 
-        <View style={styles.button_container}>
-          <Button onPress={() => router.push("/sign-up-flow")}>
-            <Text style={styles.button_text}>Next</Text>
-          </Button>
+          <View style={styles.button_container}>
+            <Button onPress={() => router.push("/sign-up-flow")}>
+              <Text style={styles.button_text}>Next</Text>
+            </Button>
+          </View>
         </View>
-      </View>
       </ScrollView>
     </SafeAreaView>
   );

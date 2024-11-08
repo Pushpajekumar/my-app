@@ -9,6 +9,7 @@ type HeaderBackProps = {
   onClearAll?: () => void;
   handleBack: () => void;
   isProfile?: boolean;
+  isInsights?: boolean;
 };
 
 const HeaderBack = ({
@@ -16,6 +17,7 @@ const HeaderBack = ({
   showClearAll,
   handleBack,
   isProfile,
+  isInsights,
 }: HeaderBackProps) => {
   return (
     <>
@@ -28,6 +30,17 @@ const HeaderBack = ({
           <Image
             source={require("@/assets/images/qr_scan.png")}
             style={styles.qr}
+          />
+        </View>
+      ) : isInsights ? (
+        <View style={styles.header_container}>
+          <Pressable onPress={handleBack}>
+            <AntDesign name="left" size={20} color={Colors.light.primary} />
+          </Pressable>
+          <Text style={styles.text_heading}>{label}</Text>
+          <Image
+            source={require("@/assets/images/edit-pen.png")}
+            style={styles.edit_pen}
           />
         </View>
       ) : (
@@ -78,6 +91,10 @@ const styles = StyleSheet.create({
   qr: {
     width: 24,
     height: 24,
+  },
+  edit_pen: {
+    width: 16,
+    height: 16,
   },
 });
 
