@@ -10,6 +10,7 @@ type HeaderBackProps = {
   handleBack: () => void;
   isProfile?: boolean;
   isInsights?: boolean;
+  isInsightsEdit?: boolean;
 };
 
 const HeaderBack = ({
@@ -18,6 +19,7 @@ const HeaderBack = ({
   handleBack,
   isProfile,
   isInsights,
+  isInsightsEdit,
 }: HeaderBackProps) => {
   return (
     <>
@@ -38,10 +40,12 @@ const HeaderBack = ({
             <AntDesign name="left" size={20} color={Colors.light.primary} />
           </Pressable>
           <Text style={styles.text_heading}>{label}</Text>
-          <Image
-            source={require("@/assets/images/edit-pen.png")}
-            style={styles.edit_pen}
-          />
+          {isInsightsEdit ? (
+            <Image
+              source={require("@/assets/images/edit-pen.png")}
+              style={styles.edit_pen}
+            />
+          ) : <Text></Text>}
         </View>
       ) : (
         <View style={styles.header_container}>
