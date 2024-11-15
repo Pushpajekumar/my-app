@@ -11,18 +11,8 @@ export default function PublicLayout() {
       <Stack.Screen name="terms" options={{ headerShown: false }} />
       <Stack.Screen name="refund-policy" options={{ headerShown: false }} />
       <Stack.Screen name="about" options={{ headerShown: false }} />
-      <Stack.Screen
-        name="assigned-workout-diet"
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="insights/calorie-insight"
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="insights/water-insight"
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="insights" options={{ headerShown: false }} />
+      
     </Stack>
   );
 }

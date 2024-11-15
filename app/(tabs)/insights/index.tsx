@@ -64,7 +64,10 @@ const index = () => {
             <Text style={styles.compareNowText}>
               Track Your Progress Each Month With Photos
             </Text>
-            <TouchableOpacity style={styles.compareNowButton}>
+            <TouchableOpacity
+              style={styles.compareNowButton}
+              onPress={() => router.push("/(public)/insights/photos")}
+            >
               <Text style={styles.buttonText}>Compare Now</Text>
             </TouchableOpacity>
           </View>
