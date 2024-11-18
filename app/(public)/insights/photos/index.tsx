@@ -8,6 +8,33 @@ import { useRouter } from "expo-router";
 const index = () => {
   const router = useRouter();
 
+  const images = [
+    {
+      id: 1,
+      img: require("@/assets/images/image-1.png"),
+    },
+    {
+      id: 2,
+      img: require("@/assets/images/image-2.png"),
+    },
+    {
+      id: 3,
+      img: require("@/assets/images/image-3.png"),
+    },
+    {
+      id: 4,
+      img: require("@/assets/images/image-4.png"),
+    },
+    {
+      id: 5,
+      img: require("@/assets/images/image-5.png"),
+    },
+    {
+      id: 6,
+      img: require("@/assets/images/image-6.png"),
+    },
+  ];
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderBack
@@ -31,7 +58,10 @@ const index = () => {
 
       <View style={styles.compare_container}>
         <Text style={styles.compare_text}>Compare my Photo</Text>
-        <TouchableOpacity style={styles.compare_button}>
+        <TouchableOpacity
+          style={styles.compare_button}
+          onPress={() => router.push("/(public)/insights/photos/comparision")}
+        >
           <Text style={styles.compare_button_text}> Compare</Text>
         </TouchableOpacity>
       </View>
@@ -48,6 +78,11 @@ const index = () => {
               style={styles.cam_icon}
             />
           </View>
+        </View>
+        <View style={styles.image_container}>
+          {images.map((image) => (
+            <Image source={image.img} key={image.id} style={styles.images} />
+          ))}
         </View>
       </View>
     </SafeAreaView>
@@ -166,6 +201,21 @@ const styles = StyleSheet.create({
   cam_icon: {
     width: 15,
     height: 14,
+  },
+
+  image_container: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    marginTop: 20,
+  },
+
+  images: {
+    width: 100,
+    height: 100,
+    borderRadius: 20,
+    marginBottom: 20,
+    objectFit: "cover",
   },
 });
 
