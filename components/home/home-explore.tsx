@@ -1,5 +1,7 @@
 import { View, Text, FlatList, Image, StyleSheet } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { Colors } from "@/constants/Colors";
+import { getFontSize } from "@/utils/font";
 
 type HomeExploreProps = {
   data: {
@@ -14,7 +16,7 @@ const HomeExplore = ({ data }: HomeExploreProps) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Explore</Text>
-        <AntDesign name="right" size={20} color="#F2D679" />
+        <AntDesign name="right" size={20} color={Colors.light.primary} />
       </View>
 
       <FlatList
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "white",
-    fontSize: 20,
+    fontSize: getFontSize(20),
     fontWeight: "500",
   },
 
@@ -65,8 +67,10 @@ const styles = StyleSheet.create({
   itemText: {
     color: "white",
     marginTop: 10,
-    fontSize: 14,
+    fontSize: getFontSize(14),
+    fontWeight: "400",
     textAlign: "center",
+    lineHeight: 17,
   },
   separator: {
     width: 20,

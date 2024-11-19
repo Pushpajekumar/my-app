@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { useRouter } from "expo-router";
+import { getFontSize } from "@/utils/font";
 
 const HomeSearch = () => {
   const router = useRouter();
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   },
 
   searchBox: {
-    height: 40,
+    height: 44,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: Colors.light.text,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
 
   search_text: {
     color: Colors.light.text,
-    fontSize: 14,
+    fontSize: getFontSize(14),
     fontWeight: "500",
   },
 

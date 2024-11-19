@@ -4,6 +4,7 @@ import { Image, Text } from "react-native"; // Make sure Text is imported from r
 
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { isIOS } from "@/hooks/platform";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -37,7 +38,7 @@ export default function TabLayout() {
             <Text
               style={{
                 fontSize: 14,
-                marginBottom: 10,
+                marginBottom: isIOS ? -15 : 10,
                 fontWeight: focused ? "bold" : "normal",
                 color: focused ? Colors.light.primary : "gray",
               }}
@@ -65,7 +66,7 @@ export default function TabLayout() {
             <Text
               style={{
                 fontSize: 14,
-                marginBottom: 10,
+                marginBottom: isIOS ? -15 : 10,
                 fontWeight: focused ? "bold" : "normal",
                 color: focused ? Colors.light.primary : "gray",
               }}
@@ -93,7 +94,7 @@ export default function TabLayout() {
             <Text
               style={{
                 fontSize: 14,
-                marginBottom: 10,
+                marginBottom: isIOS ? -15 : 10,
                 fontWeight: focused ? "bold" : "normal",
                 color: focused ? Colors.light.primary : "gray",
               }}
@@ -121,7 +122,7 @@ export default function TabLayout() {
             <Text
               style={{
                 fontSize: 14,
-                marginBottom: 10,
+                marginBottom: isIOS ? -15 : 10,
                 fontWeight: focused ? "bold" : "normal",
                 color: focused ? Colors.light.primary : "gray",
               }}

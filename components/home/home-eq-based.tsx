@@ -1,3 +1,5 @@
+import { Colors } from "@/constants/Colors";
+import { getFontSize } from "@/utils/font";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import React from "react";
 import { FlatList, Image, Text, View, StyleSheet } from "react-native";
@@ -8,36 +10,38 @@ type HomeEquipmentBasedExerciseProps = {
     name: string;
     imgUrl: any;
   }[];
-}
+};
 
-const HomeEquipmentBasedExercise = ({data}: HomeEquipmentBasedExerciseProps) => {
+const HomeEquipmentBasedExercise = ({
+  data,
+}: HomeEquipmentBasedExerciseProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Equipment-Based Exercise</Text>
-        <AntDesign name="right" size={20} color="#F2D679" />
+        <AntDesign name="right" size={20} color={Colors.light.primary} />
       </View>
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <View style={styles.itemContainer}>
-              <Image
-                source={item.imgUrl}
-                alt="Explore Icon"
-                style={styles.image}
-              />
-              <View style={styles.overlay}>
-                <Text style={styles.itemText}>{item.name}</Text>
-              </View>
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.itemContainer}>
+            <Image
+              source={item.imgUrl}
+              alt="Explore Icon"
+              style={styles.image}
+            />
+            <View style={styles.overlay}>
+              <Text style={styles.itemText}>{item.name}</Text>
             </View>
-          )}
-          scrollEnabled
-          horizontal
-          style={styles.flatList}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-        />
-      </View>
+          </View>
+        )}
+        scrollEnabled
+        horizontal
+        style={styles.flatList}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+      />
+    </View>
   );
 };
 
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "white",
-    fontSize: 20,
+    fontSize: getFontSize(20),
     fontWeight: "500",
   },
 
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
   itemText: {
     color: "white",
     paddingVertical: 8,
-    fontSize: 16,
+    fontSize: getFontSize(16),
     fontWeight: "500",
     textAlign: "center",
   },

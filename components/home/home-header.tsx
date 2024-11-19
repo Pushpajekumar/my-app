@@ -1,6 +1,8 @@
 import { Colors } from "@/constants/Colors";
+import { getFontSize } from "@/utils/font";
 import { useRouter } from "expo-router";
 import { Image, View, StyleSheet, Text, Pressable } from "react-native";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 const GITHUB_AVATAR_URI = "https://github.com/mrzachnugent.png";
 
@@ -48,7 +50,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingTop: 20,
   },
   leftSection: {
     flexDirection: "row",
@@ -61,12 +62,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   greetingText: {
-    fontSize: 20,
+    fontSize: getFontSize(20),
     fontWeight: "500",
     color: "white",
   },
   subtitleText: {
-    fontSize: 14,
+    fontSize: getFontSize(14),
     color: Colors.light.mute,
   },
   rightSection: {

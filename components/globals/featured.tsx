@@ -1,4 +1,5 @@
 import { Colors } from "@/constants/Colors";
+import { getFontSize } from "@/utils/font";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { View, Text, FlatList, Image, StyleSheet } from "react-native";
 
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "white",
-    fontSize: 20,
+    fontSize: getFontSize(20),
     fontWeight: "500",
   },
   flatList: {
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
   itemText: {
     color: "white",
     paddingVertical: 8,
-    fontSize: 16,
+    fontSize: getFontSize(16),
     fontWeight: "500",
     textAlign: "center",
   },

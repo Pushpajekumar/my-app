@@ -32,11 +32,11 @@ const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    AsyncStorage.clear(); // Clear AsyncStorage for testing purposes
+    // AsyncStorage.clear(); // Clear AsyncStorage for testing purposes
 
     const checkFirstTime = async () => {
       try {
-        const isAuthenticated = false;
+        const isAuthenticated = true;
         const firstTime = await AsyncStorage.getItem("first_time");
 
         // If this isn't the first time and the user is authenticated, navigate to the main screen

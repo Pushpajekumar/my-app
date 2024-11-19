@@ -4,6 +4,7 @@ import HeaderBack from "@/components/globals/header-back";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
+import { getFontSize } from "@/utils/font";
 
 const result = [
   {
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
 
   noNotifyText: {
     color: Colors.light.text,
-    fontSize: 18,
+    fontSize: getFontSize(18),
     fontWeight: "500",
     marginTop: 40,
     lineHeight: 21,
@@ -153,13 +154,13 @@ const styles = StyleSheet.create({
   },
 
   result_title: {
-    fontSize: 18,
+    fontSize: getFontSize(18),
     fontWeight: "500",
     color: "white",
   },
 
   result_desc: {
-    fontSize: 12,
+    fontSize: getFontSize(12),
     color: Colors.light.mute,
   },
 
@@ -186,11 +187,11 @@ const styles = StyleSheet.create({
   },
 
   date: {
-    fontSize: 12,
+    fontSize: getFontSize(12),
     color: Colors.light.mute,
   },
   today_date: {
-    fontSize: 12,
+    fontSize: getFontSize(12),
     color: "white",
   },
 });

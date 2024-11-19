@@ -45,20 +45,18 @@ const HomeCarousel = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
-    height: 150,
+    borderRadius: 8,
   },
   imageContainer: {
     flex: 1,
     justifyContent: "center",
     overflow: "hidden",
-    // backgroundColor: "red",
-    // borderRadius: 8,
+    backgroundColor: "red",
   },
   image: {
-    width: "93%",
-    height: "100%",
-    resizeMode: "contain",
-    // borderRadius: 8,
+    width: "100%",
+    height: 150,
+    resizeMode: "cover",
   },
 });
 
