@@ -36,7 +36,7 @@ const Index = () => {
 
     const checkFirstTime = async () => {
       try {
-        const isAuthenticated = true;
+        const isAuthenticated = false;
         const firstTime = await AsyncStorage.getItem("first_time");
 
         // If this isn't the first time and the user is authenticated, navigate to the main screen
