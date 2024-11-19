@@ -1,8 +1,16 @@
 import { Colors } from "@/constants/Colors";
 import { getFontSize } from "@/utils/font";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { router } from "expo-router";
 import React from "react";
-import { FlatList, Image, Text, View, StyleSheet } from "react-native";
+import {
+  FlatList,
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 type HomeEquipmentBasedExerciseProps = {
   data: {
@@ -25,7 +33,10 @@ const HomeEquipmentBasedExercise = ({
         data={data}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
+          <TouchableOpacity
+            style={styles.itemContainer}
+            onPress={() => router.push("/(public)/exercise")}
+          >
             <Image
               source={item.imgUrl}
               alt="Explore Icon"
@@ -34,7 +45,7 @@ const HomeEquipmentBasedExercise = ({
             <View style={styles.overlay}>
               <Text style={styles.itemText}>{item.name}</Text>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
         scrollEnabled
         showsHorizontalScrollIndicator={false}

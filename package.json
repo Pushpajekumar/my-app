@@ -26,6 +26,7 @@
     "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
+    "expo-video": "^2.0.0",
     "expo-web-browser": "~13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -39,7 +40,8 @@
     "react-native-simple-dialogs": "^2.1.0",
     "react-native-tab-view": "^3.5.2",
     "react-native-web": "~0.19.10",
-    "undefined": "."
+    "undefined": ".",
+    "expo-av": "~14.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
