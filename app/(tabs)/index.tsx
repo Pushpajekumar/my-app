@@ -7,6 +7,7 @@ import HomeCarousel from "@/components/home/home-carousel";
 import HomeExplore from "@/components/home/home-explore";
 import HomeEquipmentBasedExercise from "@/components/home/home-eq-based";
 import Featured from "@/components/globals/featured";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   const homeExploreData = [
@@ -103,8 +104,12 @@ export default function HomeScreen() {
     },
   ];
 
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, {
+      paddingBottom: insets.bottom - 70
+    }]}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <HomeHeader />
         <HomeSearch />
@@ -113,7 +118,7 @@ export default function HomeScreen() {
         <HomeEquipmentBasedExercise data={homeEqData} />
         <Featured data={featuredDiet} title="Featured Workouts" />
         <Featured data={featuredDiet} title="Featured Exercise" />
-        <Featured data={featuredDiet} title="Featured Diet" isLast/>
+        <Featured data={featuredDiet} title="Featured Diet" isLast />
       </ScrollView>
     </SafeAreaView>
   );

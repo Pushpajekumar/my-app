@@ -13,11 +13,21 @@ import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ListCard from "@/components/insights/workout-pogress-card";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { getFontSize } from "@/utils/font";
 
 const index = () => {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[
+        styles.container,
+        {
+          paddingBottom: insets.bottom - 70,
+        },
+      ]}
+    >
       <HeaderBack
         label="Insights"
         handleBack={() => router.navigate("/(tabs)")}
@@ -60,7 +70,11 @@ const index = () => {
         </View>
 
         <View style={styles.compareNowContainer}>
-          <View>
+          <View
+            style={{
+              maxWidth: "60%",
+            }}
+          >
             <Text style={styles.compareNowText}>
               Track Your Progress Each Month With Photos
             </Text>
@@ -89,7 +103,11 @@ const index = () => {
         />
 
         <View style={styles.compareNowContainer}>
-          <View>
+          <View
+            style={{
+              maxWidth: "60%",
+            }}
+          >
             <Text style={styles.compareNowText}>
               Track Your Progress Each Month With Photos
             </Text>
@@ -112,7 +130,7 @@ const styles = StyleSheet.create({
   },
 
   heading: {
-    fontSize: 20,
+    fontSize: getFontSize(20),
     fontWeight: "500",
     lineHeight: 24,
     letterSpacing: 0.2,
@@ -131,7 +149,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.secondary,
     borderRadius: 26,
     padding: 14,
-    width: 152,
+    width: "48%",
     height: 134,
   },
 
@@ -142,7 +160,7 @@ const styles = StyleSheet.create({
 
   topWidgetHeading: {
     color: Colors.light.text,
-    fontSize: 16,
+    fontSize: getFontSize(16),
     fontWeight: "500",
     lineHeight: 19,
     letterSpacing: 0.16,
@@ -159,7 +177,7 @@ const styles = StyleSheet.create({
 
   topWidgetValue: {
     color: Colors.light.text,
-    fontSize: 22,
+    fontSize: getFontSize(22),
     fontWeight: "700",
     lineHeight: 26.4,
     letterSpacing: 0.2,
@@ -167,7 +185,7 @@ const styles = StyleSheet.create({
 
   topWidgetUnit: {
     color: Colors.light.mute,
-    fontSize: 14,
+    fontSize: getFontSize(14),
     fontWeight: "400",
     lineHeight: 16.8,
     letterSpacing: 0.14,
@@ -187,11 +205,10 @@ const styles = StyleSheet.create({
   },
 
   compareNowText: {
-    fontSize: 12,
+    fontSize: getFontSize(12),
     fontWeight: "500",
     color: Colors.light.text,
     lineHeight: 18,
-    maxWidth: 165,
   },
 
   compareNowButton: {
@@ -201,11 +218,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginTop: 20,
     color: Colors.light.text,
-    maxWidth: 95,
+    alignSelf: 'flex-start',
   },
 
   buttonText: {
-    fontSize: 10,
+    fontSize: getFontSize(10),
     lineHeight: 15,
     fontWeight: "600",
     color: "#000000",
@@ -223,7 +240,7 @@ const styles = StyleSheet.create({
   },
 
   workouts: {
-    fontSize: 20,
+    fontSize: getFontSize(20),
     letterSpacing: 0.2,
     lineHeight: 24,
     fontWeight: "500",
@@ -231,7 +248,7 @@ const styles = StyleSheet.create({
   },
 
   viewAll: {
-    fontSize: 14,
+    fontSize: getFontSize(14),
     fontWeight: "500",
     color: Colors.light.mute,
   },

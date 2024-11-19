@@ -16,7 +16,7 @@ export default function TabLayout() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: Colors.light.secondary,
-          height: 69,
+          height: "8.5%",
         },
       }}
     >
@@ -38,7 +38,7 @@ export default function TabLayout() {
             <Text
               style={{
                 fontSize: 14,
-                marginBottom: isIOS ? -15 : 10,
+                marginBottom: isIOS ? -10 : 10,
                 fontWeight: focused ? "bold" : "normal",
                 color: focused ? Colors.light.primary : "gray",
               }}

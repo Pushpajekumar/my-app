@@ -37,6 +37,7 @@ const HomeEquipmentBasedExercise = ({
           </View>
         )}
         scrollEnabled
+        showsHorizontalScrollIndicator={false}
         horizontal
         style={styles.flatList}
         ItemSeparatorComponent={() => <View style={styles.separator} />}

@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
     paddingHorizontal: 5,
+    height: 44,
     position: "relative",
   },
 

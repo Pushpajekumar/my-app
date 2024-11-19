@@ -18,6 +18,7 @@ const Featured = ({ title, data, isLast }: FeaturedTypeProps) => {
     <View
       style={[
         styles.container,
+
         isLast && {
           marginBottom: 20,
         },
@@ -44,6 +45,7 @@ const Featured = ({ title, data, isLast }: FeaturedTypeProps) => {
         )}
         scrollEnabled
         horizontal
+        showsHorizontalScrollIndicator={false}
         style={styles.flatList}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
       />

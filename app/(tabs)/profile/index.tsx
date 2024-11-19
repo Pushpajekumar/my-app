@@ -2,12 +2,11 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from "@/constants/Colors";
-import { Header } from "react-native/Libraries/NewAppScreen";
-import HomeHeader from "@/components/home/home-header";
 import HeaderBack from "@/components/globals/header-back";
 import { useRouter } from "expo-router";
 import ProfileInfo from "@/components/profile/profile-info";
 import ProfileNav from "@/components/profile/profile-nav";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const index = () => {
   const userProfileData = {
@@ -20,9 +19,17 @@ const index = () => {
   };
 
   const router = useRouter();
+  const insets = useSafeAreaInsets();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[
+        styles.container,
+        {
+          paddingBottom: insets.bottom - 70,
+        },
+      ]}
+    >
       <HeaderBack
         label="Account"
         handleBack={() => router.navigate("/(tabs)")}

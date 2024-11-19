@@ -34,6 +34,7 @@ const HomeExplore = ({ data }: HomeExploreProps) => {
         )}
         scrollEnabled
         horizontal
+        showsHorizontalScrollIndicator={false}
         style={styles.flatList}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
       />

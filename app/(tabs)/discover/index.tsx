@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import HeaderBack from "@/components/globals/header-back";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
-import { AntDesign } from "@expo/vector-icons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SearchComp from "@/components/globals/search";
 import FilterNav from "@/components/globals/filter-nav";
 import Featured from "@/components/globals/featured";
@@ -39,8 +39,16 @@ const featuredDiet = [
 
 const index = () => {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[
+        styles.container,
+        {
+          paddingBottom: insets.bottom - 70,
+        },
+      ]}
+    >
       <HeaderBack
         label="Discover"
         handleBack={() => router.navigate("/(tabs)")}

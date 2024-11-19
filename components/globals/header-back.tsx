@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
+import { getFontSize } from "@/utils/font";
 
 type HeaderBackProps = {
   label: string;
@@ -45,7 +46,9 @@ const HeaderBack = ({
               source={require("@/assets/images/edit-pen.png")}
               style={styles.edit_pen}
             />
-          ) : <Text></Text>}
+          ) : (
+            <Text></Text>
+          )}
         </View>
       ) : (
         <View style={styles.header_container}>
@@ -77,16 +80,16 @@ const styles = StyleSheet.create({
   text_heading: {
     color: "white",
     fontWeight: "500",
-    fontSize: 20,
+    fontSize: getFontSize(20),
     marginLeft: 10,
   },
   text: {
     color: Colors.light.primary,
     fontWeight: "500",
-    fontSize: 14,
+    fontSize: getFontSize(14),
   },
   account: {
-    fontSize: 20,
+    fontSize: getFontSize(20),
     lineHeight: 24,
     fontWeight: "800",
     color: Colors.light.primary,
