@@ -13,7 +13,8 @@
       "backgroundColor": "#171717"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pushpaje.breezeway"
     },
     "android": {
       "adaptiveIcon": {

@@ -400,6 +400,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     color: Colors.light.text,
     lineHeight: 17,
+    marginBottom: 5,
   },
 
   input: {
@@ -424,16 +425,20 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 10,
     top: "50%",
-    transform: [{ translateY: -13 }],
+    transform: [{ translateY: -16.8 }],
     flexDirection: "row",
     borderRadius: 8,
     overflow: "hidden",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   toggleButton: {
-    paddingVertical: 5,
+   justifyContent: "center",
+    alignItems: "center",
     paddingHorizontal: 10,
     backgroundColor: "white", // Default inactive background color
+    height: 35,
   },
 
   selectedButton: {

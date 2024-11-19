@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     color: Colors.light.text,
     lineHeight: 17,
+    marginBottom: 5,
   },
 
   input: {
