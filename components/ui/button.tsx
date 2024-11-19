@@ -1,4 +1,5 @@
 import { Colors } from "@/constants/Colors";
+import { getFontSize } from "@/utils/font";
 import React, { ReactNode } from "react";
 import {
   ViewStyle,
@@ -8,6 +9,7 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
 } from "react-native";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 interface ButtonProps extends TouchableOpacityProps {
   title?: string; // Make title optional if you're using children
@@ -44,14 +46,14 @@ const Button: React.FC<ButtonProps> = ({
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: 18,
+    paddingHorizontal: 16,
+    borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
   },
   text: {
-    fontSize: 16,
+    fontSize: getFontSize(16),
     fontWeight: "bold",
   },
 });

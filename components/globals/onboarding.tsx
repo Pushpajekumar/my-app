@@ -2,6 +2,7 @@ import React from "react";
 import { Image, View, StyleSheet, Text } from "react-native";
 import { Colors } from "@/constants/Colors";
 import Button from "../ui/button";
+import { getFontSize } from "@/utils/font";
 
 interface OnboardingScreenProps {
   imageSource: any;
@@ -100,7 +101,8 @@ const styles = StyleSheet.create({
   skipText: {
     color: Colors.light.primary,
     fontWeight: "500",
-    fontSize: 14,
+    fontSize: getFontSize(14),
+    lineHeight: 16,
   },
   contentContainer: {
     position: "absolute",
@@ -111,20 +113,21 @@ const styles = StyleSheet.create({
   lifestyleText: {
     color: Colors.light.text,
     fontWeight: "500",
-    fontSize: 14,
-    letterSpacing: 1.5,
+    fontSize: getFontSize(14),
+    lineHeight: 16,
+    letterSpacing: 1.3,
   },
   mainText: {
     color: Colors.light.primary,
-    fontWeight: "bold",
-    fontSize: 60,
-    marginTop: 20,
-    lineHeight: 64,
+    fontWeight: "700",
+    fontSize: getFontSize(60),
+    lineHeight: 72,
   },
   description: {
     color: Colors.light.text,
     fontWeight: "500",
-    fontSize: 13,
+    fontSize: getFontSize(13),
+    lineHeight: 18,
     marginTop: 10,
   },
   bottomContainer: {
@@ -135,7 +138,8 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: Colors.light.primary,
-    marginTop: 96,
+    paddingVertical: 18,
+    width: "100%",
   },
   pagination: {
     flexDirection: "row",
