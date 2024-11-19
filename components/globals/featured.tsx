@@ -1,7 +1,15 @@
 import { Colors } from "@/constants/Colors";
 import { getFontSize } from "@/utils/font";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { View, Text, FlatList, Image, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  StyleSheet,
+  Pressable,
+} from "react-native";
 
 type FeaturedTypeProps = {
   title: string;
@@ -14,6 +22,7 @@ type FeaturedTypeProps = {
 };
 
 const Featured = ({ title, data, isLast }: FeaturedTypeProps) => {
+  const router = useRouter();
   return (
     <View
       style={[
@@ -32,7 +41,11 @@ const Featured = ({ title, data, isLast }: FeaturedTypeProps) => {
         data={data}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.itemContainer} key={item.id}>
+          <Pressable
+            style={styles.itemContainer}
+            key={item.id}
+            onPress={() => router.push("/(public)/program-plans/plan-details")}
+          >
             <Image
               source={item.imgUrl}
               alt="Explore Icon"
@@ -41,7 +54,7 @@ const Featured = ({ title, data, isLast }: FeaturedTypeProps) => {
             <View style={styles.overlay}>
               <Text style={styles.itemText}>{item.name}</Text>
             </View>
-          </View>
+          </Pressable>
         )}
         scrollEnabled
         horizontal

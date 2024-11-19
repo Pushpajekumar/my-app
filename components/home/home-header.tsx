@@ -28,11 +28,13 @@ const HomeHeader = () => {
         </View>
       </View>
       <View style={styles.rightSection}>
-        <Image
-          source={require("@/assets/images/Cart Large Minimalistic.png")}
-          style={styles.icon}
-          alt="Shopping Cart"
-        />
+        <Pressable onPress={() => router.push("/(public)/program-plans")}>
+          <Image
+            source={require("@/assets/images/Cart Large Minimalistic.png")}
+            style={styles.icon}
+            alt="Shopping Cart"
+          />
+        </Pressable>
         <Pressable onPress={handleNotificationPress}>
           <Image
             source={require("@/assets/images/Notification.png")}

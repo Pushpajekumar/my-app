@@ -17,6 +17,7 @@ export default function PublicLayout() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="exercise" options={{ headerShown: false }} />
+      <Stack.Screen name="program-plans" options={{ headerShown: false }} />
     </Stack>
   );
 }
