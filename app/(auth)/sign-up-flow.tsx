@@ -21,6 +21,8 @@ import Animated, {
 } from "react-native-reanimated";
 import Button from "@/components/ui/button";
 import { useRouter } from "expo-router";
+import { getFontSize } from "@/utils/font";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 const screenHeight = Dimensions.get("window").height;
 
@@ -267,7 +269,16 @@ const SignUpFlow = () => {
       )}
 
       <Button
-        style={styles.button}
+        style={{
+          marginTop:
+            selectedIndex === 0 
+              ? screenHeight * 0.2
+              : selectedIndex === 1
+              ? screenHeight * 0.2
+              : selectedIndex === 2
+              ? screenHeight * 0.1
+              : screenHeight * 0.3, 
+        }}
         onPress={() => router.push("/optional-info")}
       >
         <Text style={styles.button_text}>Next</Text>
@@ -282,7 +293,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingTop: 20,
+    paddingTop: 10,
     backgroundColor: Colors.light.background,
   },
   pagination: {
@@ -303,13 +314,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   heading: {
-    fontSize: 20,
+    fontSize: getFontSize(20),
     fontWeight: "500",
     color: Colors.light.text,
     lineHeight: 24,
   },
   selector_container: {
-    marginTop: screenHeight * 0.1,
+    marginTop: 60,
   },
   selector: {
     backgroundColor: Colors.light.background,
@@ -326,17 +337,14 @@ const styles = StyleSheet.create({
   selector_text: {
     color: "white",
     textAlign: "center",
-    fontSize: 16,
+    fontSize: getFontSize(16),
     fontWeight: "500",
   },
   selectedText: {
     color: Colors.light.background,
   },
-  button: {
-    marginTop: screenHeight * 0.2,
-  },
   button_text: {
-    fontSize: 16,
+    fontSize: getFontSize(16),
     fontWeight: "500",
     color: "black",
     lineHeight: 20,
@@ -371,7 +379,7 @@ const styles = StyleSheet.create({
     tintColor: "gray",
   },
   imageLabel: {
-    fontSize: 18,
+    fontSize: getFontSize(18),
     fontWeight: "500",
     lineHeight: 30,
     marginTop: 10,
@@ -384,18 +392,18 @@ const styles = StyleSheet.create({
   },
 
   form: {
-    marginTop: screenHeight * 0.02,
+    marginTop: 10,
   },
 
   label: {
-    fontSize: 14,
+    fontSize: getFontSize(14),
     fontWeight: "400",
     color: Colors.light.text,
     lineHeight: 17,
   },
 
   input: {
-    height: 40,
+    height: 44,
     borderWidth: 1,
     borderRadius: 5,
     marginTop: 3,
@@ -405,7 +413,7 @@ const styles = StyleSheet.create({
   },
 
   form_container: {
-    marginTop: screenHeight * 0.1,
+    marginTop: 20,
   },
 
   inputContainer: {

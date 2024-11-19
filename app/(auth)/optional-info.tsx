@@ -46,10 +46,7 @@ const OptionalInfo = () => {
             You can also add later From your Profile
           </Text>
         </View>
-        <Button
-          style={styles.button}
-          onPress={() => router.push("/(tabs)")}
-        >
+        <Button style={styles.button} onPress={() => router.push("/(tabs)")}>
           <Text style={styles.button_text}>Next</Text>
         </Button>
       </View>
@@ -139,7 +136,7 @@ const styles = StyleSheet.create({
   },
 
   note_desc_text: {
-    color: Colors.light.mute,
+    color: "#C5C6C7",
     fontSize: 12,
     lineHeight: 14,
   },

@@ -5,7 +5,11 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { Colors } from "@/constants/Colors";
 import Button from "@/components/ui/button";
 import { Link, useRouter } from "expo-router";
-import { screenHeight } from "@/constants/dimensions";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { getFontSize } from "@/utils/font";
+import { Fontisto } from "@expo/vector-icons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const SignUp = () => {
   const router = useRouter();
@@ -26,6 +30,12 @@ const SignUp = () => {
               placeholder="Enter Full Name"
               placeholderTextColor={Colors.light.mute}
             />
+            <FontAwesome
+              name="user-o"
+              size={24}
+              color="white"
+              style={styles.icons}
+            />
           </View>
           <View style={styles.form}>
             <Text style={styles.label}>Email</Text>
@@ -34,14 +44,40 @@ const SignUp = () => {
               placeholder="Enter Email"
               placeholderTextColor={Colors.light.mute}
             />
+            <Fontisto
+              name="email"
+              size={24}
+              color="white"
+              style={styles.icons}
+            />
           </View>
 
+          <View style={styles.form}>
+            <Text style={styles.label}>Phone</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Phone"
+              placeholderTextColor={Colors.light.mute}
+            />
+            <MaterialIcons
+              name="phone-callback"
+              size={24}
+              color="white"
+              style={styles.icons}
+            />
+          </View>
           <View style={styles.form}>
             <Text style={styles.label}>Password</Text>
             <TextInput
               style={styles.input}
               placeholder="Enter Password"
               placeholderTextColor={Colors.light.mute}
+            />
+            <Ionicons
+              name="eye-off-outline"
+              size={24}
+              color="white"
+              style={styles.icons}
             />
           </View>
           <View style={styles.form}>
@@ -50,6 +86,12 @@ const SignUp = () => {
               style={styles.input}
               placeholder="Conform Your Password"
               placeholderTextColor={Colors.light.mute}
+            />
+            <Ionicons
+              name="eye-off-outline"
+              size={24}
+              color="white"
+              style={styles.icons}
             />
           </View>
         </View>
@@ -85,58 +127,64 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingTop: 20,
     backgroundColor: Colors.light.background,
   },
   content_container: {
-    marginTop: screenHeight * 0.01,
+    marginTop: 10,
   },
   heading: {
-    fontSize: 24,
-    fontWeight: "bold",
+    fontSize: getFontSize(24),
+    fontWeight: "600",
     color: Colors.light.text,
-    lineHeight: 30,
+    lineHeight: 29,
+  },
+
+  form_container: {
+    marginTop: 20,
   },
 
   form: {
-    marginTop: screenHeight * 0.02,
+    marginTop: 10,
+  },
+
+  icons: {
+    position: "absolute",
+    right: 10,
+    top: 30,
   },
 
   label: {
-    fontSize: 14,
+    fontSize: getFontSize(14),
     fontWeight: "400",
     color: Colors.light.text,
     lineHeight: 17,
   },
 
   input: {
-    height: 40,
+    height: 44,
     borderWidth: 1,
     borderRadius: 5,
     marginTop: 3,
+    width: "100%",
     borderColor: Colors.light.text,
     color: Colors.light.text,
     paddingHorizontal: 10,
   },
 
-  form_container: {
-    marginTop: screenHeight * 0.1,
-  },
-
   button_container: {
-    marginTop: screenHeight * 0.1,
+    marginTop: 40,
   },
 
   forgot_password: {
     marginTop: 10,
     color: Colors.light.text,
-    fontSize: 18,
+    fontSize: getFontSize(18),
     fontWeight: "400",
     textAlign: "center",
   },
 
   button_text: {
-    fontSize: 16,
+    fontSize: getFontSize(16),
     fontWeight: "500",
     color: "black",
     lineHeight: 20,

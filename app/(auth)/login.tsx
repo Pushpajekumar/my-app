@@ -4,10 +4,14 @@ import { Link, useNavigation } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import { screenHeight } from "@/constants/dimensions";
 import Button from "@/components/ui/button";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { getFontSize } from "@/utils/font";
+import Fontisto from "@expo/vector-icons/Fontisto";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const login = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
         <Text style={styles.title}>Login</Text>
         <View style={styles.line_decoration} />
@@ -34,10 +38,17 @@ const login = () => {
         <View style={styles.form}>
           <Text style={styles.label}>Email</Text>
           <TextInput style={styles.input} />
+          <Fontisto name="email" size={24} color="white" style={styles.icons} />
         </View>
         <View style={styles.form}>
           <Text style={styles.label}>Password</Text>
           <TextInput style={styles.input} />
+          <Ionicons
+            name="eye-off-outline"
+            size={24}
+            color="white"
+            style={styles.icons}
+          />
         </View>
       </View>
       <View>
@@ -66,7 +77,7 @@ const login = () => {
           </Text>
         </Link>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -80,8 +91,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginTop: 50,
-    fontSize: 16,
+    fontSize: getFontSize(16),
     fontWeight: "500",
     color: Colors.light.text,
     lineHeight: 19,
@@ -109,7 +119,7 @@ const styles = StyleSheet.create({
   },
 
   greeting_text: {
-    fontSize: 24,
+    fontSize: getFontSize(24),
     fontWeight: "600",
     color: Colors.light.text,
     lineHeight: 29,
@@ -117,7 +127,7 @@ const styles = StyleSheet.create({
 
   greetng_subtext: {
     marginTop: 10,
-    fontSize: 14,
+    fontSize: getFontSize(14),
     fontWeight: "400",
     color: Colors.light.mute,
     lineHeight: 17,
@@ -128,30 +138,37 @@ const styles = StyleSheet.create({
   },
 
   form_container: {
-    marginTop: screenHeight * 0.1,
+    marginTop: 40,
   },
 
   label: {
-    fontSize: 14,
+    fontSize: getFontSize(14),
     fontWeight: "400",
     color: Colors.light.text,
     lineHeight: 17,
   },
 
   input: {
-    height: 40,
+    height: 44,
     borderWidth: 1,
     borderRadius: 5,
     marginTop: 3,
+    width: "100%",
     borderColor: Colors.light.text,
     color: Colors.light.text,
     paddingHorizontal: 10,
   },
 
+  icons: {
+    position: "absolute",
+    right: 10,
+    top: 30,
+  },
+
   forgot_password: {
     marginTop: 10,
     color: Colors.light.primary,
-    fontSize: 14,
+    fontSize: getFontSize(14),
     fontWeight: "400",
     textAlign: "right",
   },
@@ -164,7 +181,7 @@ const styles = StyleSheet.create({
   },
 
   orText: {
-    fontSize: 18,
+    fontSize: getFontSize(18),
     fontWeight: "500",
     color: Colors.light.text,
     backgroundColor: Colors.light.background,
@@ -197,7 +214,7 @@ const styles = StyleSheet.create({
   },
 
   last_text: {
-    fontSize: 18,
+    fontSize: getFontSize(18),
     fontWeight: "400",
     color: Colors.light.text,
     lineHeight: 17,
@@ -205,7 +222,7 @@ const styles = StyleSheet.create({
   },
 
   last_text_register: {
-    fontSize: 18,
+    fontSize: getFontSize(18),
     fontWeight: "400",
     color: Colors.light.primary,
     lineHeight: 17,
